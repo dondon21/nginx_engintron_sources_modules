@@ -687,7 +687,7 @@ echo "This script will install Nginx ${NGINX_VER} (mainline) with some optional 
 
 		# PageSpeed
 		if [[ "$PAGESPEED" = 'y' ]]; then
-			NGINX_MODULES=$(echo $NGINX_MODULES; echo "--add-module=/usr/local/src/ngx_pagespeed-${NPS_VER} ${PS_NGX_EXTRA_FLAGS}-beta")
+			NGINX_MODULES=$(echo $NGINX_MODULES; echo "--add-module=/usr/local/src/ngx_pagespeed-${NPS_VER}-beta ${PS_NGX_EXTRA_FLAGS}")
 		fi
 
 		# Brotli
@@ -702,7 +702,7 @@ echo "This script will install Nginx ${NGINX_VER} (mainline) with some optional 
 
 		# GeoIP
 		if [[ "$GEOIP" = 'y' ]]; then
-			NGINX_MODULES=$(echo $NGINX_MODULES; echo "--with-http_geoip_module")
+			NGINX_MODULES=$(echo $NGINX_MODULES; echo "") #error not solve yet with library
 		fi
 
 		# OpenSSL
